@@ -1,6 +1,6 @@
 ### Dependências
 
-> $ npm install express
+> $ npm install express nodemon
 
 > $ npm i firebase-admin
 
