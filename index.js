@@ -27,6 +27,8 @@ app.get('/transactions', async (request, response) => {
 
     admin.firestore()
     .collection('transactions')
+    .where('user.uid', '==', decodedIdToken.sub)
+    .orderBy('date', 'desc')
     .get()
     .then(snapshot => {
         const transactions = snapshot.docs.map(doc => ({
