@@ -9,11 +9,14 @@
     <form action="">
         <div>
             <div><label for="">Email</label></div>
-            <input type="email" name="email" id="email"  oninput="validateFields()" placeholder="seu@email.com">
+            <input type="email" name="email" id="email"  oninput="oninputEmail()" placeholder="seu@email.com">
+            <div class="error" id="email-required-error">Email é obrigatório</div>
+            <div class="error" id="email-invalid-error">Email inválido</div>
         </div>
         <div>
             <div><label for="">Senha</label></div>
-            <input type="password" name="password" id="password" oninput="validateFields()" placeholder="Senha">
+            <input type="password" name="password" id="password" oninput="oninputPassword()" placeholder="Senha">
+            <div class="error" id="password-required-error">Senha é obrigatória</div>
         </div>
         <div>
             <button type="button" class="clear"  id="recover-password-button" disabled="true">Recuperar senha</button>

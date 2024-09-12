@@ -49,3 +49,13 @@ button:disabled {
     color: white;
     border: 1px solid white;
 }
+
+.error {
+    display: none;
+    color: white;
+    background-color: red;
+    padding: 2px 10px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
