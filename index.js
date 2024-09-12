@@ -9,8 +9,22 @@ admin.initializeApp({
 });
 
 // GET
-app.get('/transactions', (request, response) => {
-    console.log('GET transactions');
+app.get('/transactions', async (request, response) => {
+    // Autenticação
+    const jwt = request.headers.authorization;
+    if (!jwt) {
+        response.status(401).json({message: 'Usuário não autorizado!'})
+        return;
+    }
+
+    let decodedIdToken = '';
+    try {
+        decodedIdToken = await admin.auth().verifyIdToken(jwt, true);
+    } catch (error) {
+        response.status(401).json({message: 'Usuário não autorizado!'})
+        return;
+    }
+
     admin.firestore()
     .collection('transactions')
     .get()
