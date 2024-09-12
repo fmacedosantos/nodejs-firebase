@@ -9,7 +9,8 @@ admin.initializeApp({
 });
 
 // GET
-app.get('/transactions', async (request, response) => {
+app.get('/transactions', async (request, response, next) => {
+    // middleware
     // Autenticação
     const jwt = request.headers.authorization;
     if (!jwt) {
@@ -25,9 +26,16 @@ app.get('/transactions', async (request, response) => {
         return;
     }
 
+    request.user = {
+        uid: decodedIdToken.sub
+    }
+
+    next();
+}, (request, response) => {
+
     admin.firestore()
     .collection('transactions')
-    .where('user.uid', '==', decodedIdToken.sub)
+    .where('user.uid', '==', request.user.uid)
     .orderBy('date', 'desc')
     .get()
     .then(snapshot => {
