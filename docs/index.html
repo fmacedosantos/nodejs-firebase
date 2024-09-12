@@ -9,17 +9,17 @@
     <form action="">
         <div>
             <div><label for="">Email</label></div>
-            <input type="email" name="email" placeholder="seu@email.com">
+            <input type="email" name="email" id="email"  oninput="validateFields()" placeholder="seu@email.com">
         </div>
         <div>
             <div><label for="">Senha</label></div>
-            <input type="password" name="password" placeholder="Senha">
+            <input type="password" name="password" id="password" oninput="validateFields()" placeholder="Senha">
         </div>
         <div>
-            <button type="button" class="clear" disabled="true">Recuperar senha</button>
+            <button type="button" class="clear"  id="recover-password-button" disabled="true">Recuperar senha</button>
         </div>
         <div>
-            <button type="button" class="solid" disabled="true">Entrar</button>
+            <button type="button" class="solid" id="login-button" disabled="true">Entrar</button>
         </div>
         <div>
             <button type="button" class="outline">Registrar</button>
@@ -30,6 +30,6 @@
 
 <link rel="stylesheet" href="./index.css">
 
-<script></script>
+<script src="./index.js"></script>
 
 </html>
