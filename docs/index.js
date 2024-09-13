@@ -24,14 +24,25 @@ function login() {
 
 function getErrorMessage(error){
     if(error.code == 'auth/invalid-credential'){
-        return 'Usuário não encontrado!'
-    } else {
-        return error.message;
+        return 'Credenciais inválidas!';
     }
+    return error.message;
+    
 }
 
 function register() {
     window.location.href = './pages/register/register.html';
+}
+
+function recoverPassword(){
+    showLoading();
+    firebase.auth().sendPasswordResetEmail(form.email().value).then(() => {
+        hideLoading();
+        alert('Email enviado com sucesso!')
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error))
+    })
 }
 
 function isEmailValid() {
