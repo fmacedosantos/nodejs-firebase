@@ -7,13 +7,13 @@
 </head>
 <body>
     <form action="">
-        <div>
+        <div class="form-field">
             <div><label for="">Email</label></div>
             <input type="email" name="email" id="email"  oninput="oninputEmail()" placeholder="seu@email.com">
             <div class="error" id="email-required-error">Email é obrigatório</div>
             <div class="error" id="email-invalid-error">Email inválido</div>
         </div>
-        <div>
+        <div class="form-field">
             <div><label for="">Senha</label></div>
             <input type="password" name="password" id="password" oninput="oninputPassword()" placeholder="Senha">
             <div class="error" id="password-required-error">Senha é obrigatória</div>
@@ -32,7 +32,9 @@
 </body>
 
 <link rel="stylesheet" href="./index.css">
+<link rel="stylesheet" href="./global.css">
 
 <script src="./index.js"></script>
+<script src="./validations.js"></script>
 
 </html>
