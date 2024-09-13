@@ -23,7 +23,28 @@ Uma maneira de testarmos:
   });</br>
   console.log('depois');</br>
 
-O console mostrará um erro. Agora, caso mudarmos os valores para os do usuário que criamos pelo console do firebase, dará sucesso.
+O console mostrará um erro. Agora, caso mudarmos os valores para os do usuário que criamos pelo console do firebase, dará sucesso. Depois disso, é necessário mudar essa lógica de autenticação para o arquivo javascript responsável pela tela de login e receber, ao clicar no botão 'Entrar', em vez de valores estáticos, os colocados nos inputs.
+
+No nosso caso, ficou assim:
+> function login() { </br>
+    firebase.auth().signInWithEmailAndPassword( </br>
+        form.email().value, form.password().value</br>
+    ).then(response => {</br>
+        window.location.href = './pages/home/home.html';</br>
+    }).catch(error => {</br>
+        alert(getErrorMessage(error))</br>
+    });</br>
+}
+
+Criamos uma função para mostrar uma mensagem de erro mais amigável ao usuário:
+> function getErrorMessage(error){</br>
+    if(error.code == 'auth/invalid-credential'){</br>
+        return 'Usuário não encontrado!'</br>
+    } else {</br>
+        return error.message;</br>
+    }</br>
+}
+
 # Back
 
 ### Dependências
