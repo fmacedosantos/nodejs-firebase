@@ -1,3 +1,9 @@
+firebase.auth().onAuthStateChange((user) => {
+    if(user){
+        window.location.href = '../home/home.html'
+    }
+})
+
 function register(){
     const email = form.email().value;
     const password = form.password().value;
