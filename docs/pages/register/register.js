@@ -1,3 +1,26 @@
+function register(){
+    const email = form.email().value;
+    const password = form.password().value;
+
+    showLoading();
+    firebase.auth().createUserWithEmailAndPassword(
+        email, password
+    ).then(() => {
+        hideLoading();
+        window.location.href = '../home/home.html'
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error))
+    });
+}
+
+function getErrorMessage(error){
+    if(error.code == 'auth/email-already-in-use'){
+        return 'Email já cadastrado!'
+    }
+    return error.message;
+}
+
 function onInputEmail() {
     const email = form.email().value;
 
