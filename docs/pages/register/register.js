@@ -14,6 +14,10 @@ function register(){
     });
 }
 
+function goToLogin(){
+    window.location.href = '../../index.html'
+}
+
 function getErrorMessage(error){
     if(error.code == 'auth/email-already-in-use'){
         return 'Email já cadastrado!'
