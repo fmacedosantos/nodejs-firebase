@@ -1,6 +1,6 @@
 if(!isNewTransaction()){
     const uid = getTransactionUid();
-    findTransactionsByUid(uid);
+    findTransactionByUid(uid);
 }
 
 function getTransactionUid(){
@@ -12,7 +12,7 @@ function isNewTransaction(){
     return getTransactionUid() ? false : true;
 }
 
-function findTransactionsByUid(){
+function findTransactionByUid(uid){
     showLoading();
 
     firebase.firestore()
@@ -111,6 +111,10 @@ function createTransaction(){
             uid: firebase.auth().currentUser.uid
         }
     }
+}
+
+function cancel(){
+    window.location.href = '../home/home.html'
 }
 
 function onInputDate(){
