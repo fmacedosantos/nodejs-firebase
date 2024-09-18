@@ -1,6 +1,6 @@
 import express, { response } from 'express';
 import admin from 'firebase-admin'
-import { authenticateToken } from './middlewares/authenticate-jwt';
+import { authenticateToken } from './middlewares/authenticate-jwt.js';
 
 // REST API
 const app = express();
