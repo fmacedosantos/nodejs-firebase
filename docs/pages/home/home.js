@@ -27,7 +27,7 @@ function findTransactions(user){
         hideLoading();
         const transactions = snapshot.docs.map(doc => ({
             ...doc.data(),
-            uid: doc.uid
+            uid: doc.id
         }));
         addTransactionsToScreen(transactions);
     })
