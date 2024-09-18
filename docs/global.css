@@ -61,6 +61,12 @@ input[type='radio']{
     border: 1px solid white;
 }
 
+.outline.danger {
+    cursor: pointer;
+    color: red;
+    border-color: red;
+}
+
 button:active {
     opacity: 0.8;
 }
