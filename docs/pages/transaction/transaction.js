@@ -3,6 +3,14 @@ if(!isNewTransaction()){
     findTransactionByUid(uid);
 }
 
+function logout(){
+    firebase.auth().signOut().then(() => {
+        window.location.href = '../../index.html';
+    }).catch(() => {
+        alert('Erro ao sair!')
+    })
+}
+
 function getTransactionUid(){
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('uid');
