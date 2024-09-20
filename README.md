@@ -70,3 +70,19 @@ Criamos uma função para mostrar uma mensagem de erro mais amigável ao usuári
   - Criar o teste
   - Rodar: 
   > $ npm run test:dev
+
+  - Adicionar no fim do package.json:
+
+  > "babel": { <br/>
+    "env": {<br/>
+      "test": {<br/>
+        "plugins": [<br/>
+          "@babel/plugin-transform-modules-commonjs"<br/>
+        ]<br/>
+      }<br/>
+    }<br/>
+  }
+
+- Instalar:
+
+> $ npm install -save-dev @babel/plugin-transform-modules-commonjs
