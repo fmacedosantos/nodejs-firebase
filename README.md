@@ -54,3 +54,19 @@ Criamos uma função para mostrar uma mensagem de erro mais amigável ao usuári
 > $ npm i firebase-admin
 
 - Criar chave sdk no firebase e colar na raiz do projeto
+
+> $ npm install --save-dev jest
+
+- Alterar em package.json:
+
+> "scripts": { <br/>
+    "test": "jest", <br/>
+    "test:dev": "jest --watch=true", <br/>
+    "start": "nodemon ./index.js localhost 3000"<br/>
+  },
+
+  - Criar a pasta de testes e criar o arquivo de teste
+  __tests__/model.spec.js
+  - Criar o teste
+  - Rodar: 
+  > $ npm run test:dev
