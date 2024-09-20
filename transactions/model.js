@@ -12,8 +12,8 @@ export class Transaction {
 
     #repository;
 
-    constructor() {
-        this.#repository = new TransactionRepository();
+    constructor(transactionRepository) {
+        this.#repository = transactionRepository || new TransactionRepository();
     }
 
     findByUser() {
