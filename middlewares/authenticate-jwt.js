@@ -1,7 +1,5 @@
 
-import admin from 'firebase-admin'
-
-export async function authenticateToken(request, response, next) {
+export async function authenticateToken(request, response, next, auth) {
     // Autenticação
     const jwt = request.headers.authorization;
     if (!jwt) {
@@ -11,7 +9,7 @@ export async function authenticateToken(request, response, next) {
 
     let decodedIdToken = '';
     try {
-        decodedIdToken = await admin.auth().verifyIdToken(jwt, true);
+        decodedIdToken = await auth.verifyIdToken(jwt, true);
     } catch (error) {
         response.status(401).json({message: 'Usuário não autorizado!'})
         return;
