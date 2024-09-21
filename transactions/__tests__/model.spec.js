@@ -1,7 +1,7 @@
 import { UserNotInformedError } from "../errors/user-not-informed-error.js";
 import { Transaction } from "../model.js"
 
-describe('Transaction model', () => {
+describe('Transaction model ', () => {
 
     const transactionRepositoryMock = {
         findByUserUid: () => Promise.resolve([
